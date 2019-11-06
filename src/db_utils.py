@@ -5,6 +5,8 @@ import traceback
 
 
 
+
+
 class DBManager :
 
 	"""Summary
@@ -32,7 +34,7 @@ class DBManager :
 
 
 	def err_handler(self,exc):
-		"""Summary
+		"""Summary Function called whenever there is a database error
 		
 		Args:
 		    exc (Exception, optional): Exception to print
