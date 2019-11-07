@@ -125,7 +125,7 @@ class UserDBServer(Server) :
 
 	def hash_password(self,pwd):
 
-		return hashlib.sha1(pwd).hexdigest()
+		return hashlib.sha1(pwd.encode('utf-8')).hexdigest()
 
 
 
@@ -164,12 +164,6 @@ class UserDBServer(Server) :
 
 		return make_response(jsonify(response_json),200)
 
-
-
-
-if __name__ == '__main__':
-
-	test_db = UserDBManager('localhost','root','toor','imovies')
 	
 
 

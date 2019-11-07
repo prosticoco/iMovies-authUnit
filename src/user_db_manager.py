@@ -6,9 +6,10 @@ class UserDBManager(DBManager):
 	index = {'uid':0,'lastname':1,'firstname':2,'email':3,'pwd':4}
 
 
-	def __init__(self,host,user,passwd,database):
+	def __init__(self,host,user,passwd,database,user_table_name='users'):
 
 		DBManager.__init__(self,host,user,passwd,database)
+		self.table_name = user_table_name
 
 
 
