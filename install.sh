@@ -6,7 +6,7 @@ DUMP_PATH=$2
 
 #apt-get update
 #apt-get upgrade
-chmod scripts/virtualenvsetup.sh +x
+chmod scripts/virtualenvsetup.sh 700
 
 sh scripts/install_mysql.sh $DB_ROOT_PASSWORD 
 sh scripts/setup_mysql.sh $DB_ROOT_PASSWORD $DUMP_PATH
