@@ -22,13 +22,18 @@ def main(args):
 
 if __name__ == '__main__':
 
+	hello = "hello"
+
+	if(hello):
+		print(hello)
+
 	parser = argparse.ArgumentParser()
-	parser.add_argument('--port', default=5001)
-	parser.add_argument('--ip',default='127.0.0.1')
-	parser.add_argument('--user', default='root')
-	parser.add_argument('--host', default='localhost')
-	parser.add_argument('--db', default='imovies')
-	parser.add_argument('--pwd', default='toor')
+	parser.add_argument('--port', default=5001,help='server port')
+	parser.add_argument('--ip',default='127.0.0.1',help='server ip')
+	parser.add_argument('--user', default='root',help='database username')
+	parser.add_argument('--host', default='localhost',help='db username host ip')
+	parser.add_argument('--db', default='imovies',help='database name')
+	parser.add_argument('--pwd', default='toor',help='db user password')
 	arguments = parser.parse_args()
 	main(arguments)
 

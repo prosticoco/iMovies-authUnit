@@ -1,0 +1,5 @@
+#!/bin/bash
+#DIRECTORY=$(dirname "$0")
+#cd  "$DIRECTORY" || exit 1
+
+python3 src/auth_unit.py "$@"
