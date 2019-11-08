@@ -22,11 +22,6 @@ def main(args):
 
 if __name__ == '__main__':
 
-	hello = "hello"
-
-	if(hello):
-		print(hello)
-
 	parser = argparse.ArgumentParser()
 	parser.add_argument('--port', default=5001,help='server port')
 	parser.add_argument('--ip',default='127.0.0.1',help='server ip')

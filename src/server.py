@@ -237,7 +237,7 @@ class UserDBServer(Server) :
 				self.user_db.update_user_info(uid,column,value)
 
 			response_json['updated'] = True
-			response_json['type'] = 1
+			response_json['type'] = 0
 			response_json['description'] = "Info updated with success"
 			return make_response(jsonify(response_json),200)
 
