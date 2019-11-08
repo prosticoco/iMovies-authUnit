@@ -1,7 +1,7 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
 
-MYSQL_ROOT_PASSWORD='?' # SET THIS! Avoid quotes/apostrophes in the password, but do use lowercase + uppercase + numbers + special chars
+MYSQL_ROOT_PASSWORD=$1 # SET THIS! Avoid quotes/apostrophes in the password, but do use lowercase + uppercase + numbers + special chars
 
 # Install MySQL
 # Suggestion from @dcarrith (http://serverfault.com/a/830352/344471):
