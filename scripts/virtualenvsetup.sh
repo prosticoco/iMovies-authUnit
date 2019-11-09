@@ -1,3 +1,5 @@
+echo 'updating system'
+apt-get update --fix-missing
 echo 'installing virtual environment and python dependencies...'
 echo 'installing venv'
 apt-get --assume-yes install python3-venv
