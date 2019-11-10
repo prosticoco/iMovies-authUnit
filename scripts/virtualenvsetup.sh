@@ -1,6 +1,4 @@
-
-
-
+#!/bin/bash
 echo 'updating system'
 apt-get update --fix-missing
 echo 'installing virtual environment and python dependencies...'
@@ -12,7 +10,5 @@ source venv/bin/activate
 echo 'installing requirements'
 pip install -r requirements.txt
 pip install -r requirements.txt
-
 chmod u+x run
-
-./run
+. run
