@@ -30,6 +30,7 @@ class Server :
 	def run_server(self):
 
 		if (self.certificate is not None) and (self.key is not None):
+
 			self.app.run(host=self.ip,port=self.port,debug=False,
 				ssl_context=(self.certificate,self.key))
 

@@ -11,5 +11,5 @@ sh scripts/install_mysql.sh $DB_ROOT_PASSWORD
 echo 'Setting up database'
 sh scripts/setup_mysql.sh $DB_ROOT_PASSWORD $DUMP_PATH
 
-./scripts/virtualenvsetup.sh
+./scripts/virtualenvsetup.sh $DB_ROOT_PASSWORD
 

@@ -13,9 +13,11 @@ def main(args):
 	db_host = args.host
 	db_pwd = args.pwd
 	db_name = args.db
+	cert_path = args.cert
+	key_path = args.sk
 
 	db_manager = UserDBManager(db_host,db_username,db_pwd,db_name)
-	auth_server = UserDBServer('Authentication Server',ip,port,db_manager)
+	auth_server = UserDBServer('Authentication Server',ip,port,db_manager,cert_path=cert_path,key_path=key_path)
 	print("Server IP : {} Server Port : {}".format(ip,port))
 	auth_server.run_server()
 
@@ -29,6 +31,8 @@ if __name__ == '__main__':
 	parser.add_argument('--host', default='localhost',help='db username host ip')
 	parser.add_argument('--db', default='imovies',help='database name')
 	parser.add_argument('--pwd', default='toor',help='db user password')
+	parser.add_argument('--cert',default='keys/server_certificate.crt',help='server certificate path')
+	parser.add_argument('--sk',default='keys/server_private_key.key',help='server private key path')
 	arguments = parser.parse_args()
 	main(arguments)
 

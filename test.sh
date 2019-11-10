@@ -1,5 +1,4 @@
 #!/bin/bash
-
-source venv/bin/activate 
-
-. run 
+echo -n Password:
+read -s password
+echo $password
