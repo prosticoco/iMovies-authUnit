@@ -3,6 +3,7 @@ from cerberus import Validator
 import json
 import logging
 import os
+import traceback
 import hashlib
 from user_db_manager import *
 
@@ -50,6 +51,7 @@ class UserDBServer(Server) :
 		self.add_url("/check_user","check_user",handler=self.check_user,methods=['POST'])
 		self.add_url("/get_info","get_info",handler=self.get_info,methods=['POST'])
 		self.add_url("/update_info","update_info",handler=self.update_info,methods=['POST'])
+		self.add_url("/is_admin","is_admin",handler=self.is_admin,methods=['POST'])
 
 
 	def error_response(self,error_text,status_code):
@@ -218,7 +220,7 @@ class UserDBServer(Server) :
 
 			if new_uid and new_uid != uid :
 
-				if self.user_db.exits(new_uid) :
+				if self.user_db.exists(new_uid) :
 
 					response_json['updated'] = False
 					response_json['type'] = 1
@@ -237,6 +239,9 @@ class UserDBServer(Server) :
 
 				self.user_db.update_user_info(uid,column,value)
 
+				if column == 'uid' :
+					self.user_db.update_admin_info(uid,value)
+
 			response_json['updated'] = True
 			response_json['type'] = 0
 			response_json['description'] = "Info updated with success"
@@ -245,6 +250,35 @@ class UserDBServer(Server) :
 		except :
 
 			return self.error_response("Server Error",400)
+
+
+	def is_admin(self):
+
+		try :
+
+			error = self.validate_request(request,validator=JSONValidators.is_admin)
+
+			if error is not None :
+
+				return error
+
+			data = json.loads(request.get_json())
+			response_json = dict()
+			response_json['admin'] = self.user_db.is_admin(data['uid'])
+			return make_response(jsonify(response_json),200)
+
+		except :
+
+
+			self.handle_error()
+			return self.error_response("Server Error",400)
+
+	
+	def handle_error(self):
+
+		traceback.print_exc()
+
+
 
 
 
@@ -266,6 +300,13 @@ class JSONValidators :
 	})
 
 	get_info = Validator({
+		"uid" : {
+			"type" : "string",
+			"required" : True
+		}
+	})
+
+	is_admin = Validator({
 		"uid" : {
 			"type" : "string",
 			"required" : True

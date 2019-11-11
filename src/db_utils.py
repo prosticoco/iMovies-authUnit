@@ -84,11 +84,14 @@ class DBManager :
 
 		except Exception as e :
 
+			print("Query that resulted in error : {}".format(query))
 			self.err_handler(e)
 
 			if prop :
 
-				raise e
+				raise e;
+
+				
 
 				
 		return result

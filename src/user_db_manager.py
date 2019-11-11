@@ -12,21 +12,12 @@ class UserDBManager(DBManager):
 		self.table_name = user_table_name
 
 
-
 	def get_user_info(self,uid):
 
 		query = """SELECT * FROM users WHERE uid = %s"""
 		parameters = uid,
 		results = []
-
-		try :
-
-			results = self.query_db(query,parameters,prop=True)
-
-		except Exception as e :
-
-			print("Error fetching user information")
-			raise e
+		results = self.query_db(query,parameters)
 
 		return results
 
@@ -47,7 +38,6 @@ class UserDBManager(DBManager):
 		return len(self.get_user_info(uid)) != 0
 
 
-
 	def get_pwd_hash(self,uid):
 
 		results = self.get_user_info(uid)
@@ -60,19 +50,32 @@ class UserDBManager(DBManager):
 			
 			return results[0][self.index['pwd']]
 
+	
 	def update_user_info(self,uid,fieldname,value):
 
 		query = """UPDATE users SET {} = %s WHERE uid = %s""".format(fieldname)
 		parameters = value,uid,
 
-		try :
+		self.query_db(query,parameters,write=True)
 
-			self.query_db(query,parameters,prop=True,write=True)
 
-		except Exception as e :
+	def update_admin_info(self,uid,value):
 
-			print("Error updating user information")
-			raise e 
+		query = """UPDATE admins SET uid = %s WHERE uid = %s"""
+		parameters = value,uid,
+
+		self.query_db(query,parameters,write=True)
+
+	
+	def is_admin(self,uid):
+
+		query = """SELECT * FROM admins WHERE uid = %s"""
+		parameters = uid,
+		results = self.query_db(query,parameters)
+
+		return len(results) != 0
+
+
 
 
 
