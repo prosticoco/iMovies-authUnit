@@ -9,6 +9,8 @@ chmod u+x scripts/virtualenvsetup.sh
 echo 'installing mySQL server'
 sh scripts/install_mysql.sh $DB_ROOT_PASSWORD 
 echo 'Setting up database'
+echo 'PATH in install only'
+echo $DUMP_PATH
 sh scripts/setup_mysql.sh $DB_ROOT_PASSWORD $DUMP_PATH
 DB_ROOT_PASSWORD=$1
 echo 'updating system'
