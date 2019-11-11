@@ -11,8 +11,6 @@ import time
 
 class Client :
 
-	
-
 
 	def __init__(self,ip,port,cert):
 
@@ -54,11 +52,6 @@ class Client :
 
 				print("Server unreachable")
 				self.exit()
-
-
-
-
-		
 
 
 	def exit(self):
@@ -124,8 +117,6 @@ class Client :
 
 		r = requests.post(self.url_update_info,verify=self.cert,json=json.dumps(update))
 		self.answer(r)
-
-
 
 
 

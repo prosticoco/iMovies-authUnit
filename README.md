@@ -2,6 +2,36 @@
 
 _Imovies_ keeps a MySQL database of its employees, containing personal information and credentials. The company's CA webserver needs information from this database to authenticate its employees before issuing certificates. For security reasons, the company chose to store the database on a separate host from the webserver. However the web server still needs some access to this information. This repository contains server intended to run on top of the MySQL database to be only accessible from the companys webserver and provide the information needed from the database.  
 
+# Installation (Automatic)
+
+
+## Use install only script (need sudo rights)
+
+```console
+sudo ./install_only.sh <MySQL Password> <Path to dumpfile>
+```
+
+## Use install and run (unsafe)
+
+```console
+sudo ./install_and_run.sh <MySQL Password> <Path to dumpfile>
+```
+This will run the server as root and should not be used.
+
+
+## Notes
+
+Dump files can be found in the db/ folder. There are two dump files :
+
+1. containing only the user table
+2. containing user table + admin table
+
+The database _imovies_ can be reset at any time with a new dumpfile by running:
+
+```console
+sh scripts/setup_mysql.sh <MySQL Password> <Path to dumpfile>
+```
+
 # Installation (Manual)
 
 ## Install Database
@@ -60,7 +90,7 @@ pip install -r requirements.txt
 By Default :
 
 ```console
-. run
+./run
 ```
 
 *By Default*
@@ -72,7 +102,7 @@ By Default :
 These options can be changed, to list options :
 
 ```console
-. run -h
+./run -h
 ```
 
 ## Run the Client
