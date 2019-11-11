@@ -14,6 +14,7 @@ class Client :
 
 	def __init__(self,ip,port,cert):
 
+
 		self.ip = ip
 		self.port = port
 		self.cert = cert
@@ -127,6 +128,7 @@ def main(args):
 	port = args.port
 	cert = args.cert
 	client = Client(ip,port,cert)
+	requests.packages.urllib3.disable_warnings()
 	client.run()
 
 
