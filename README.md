@@ -43,7 +43,7 @@ _Imovies_ keeps a MySQL database of its employees, containing personal informati
      --sk SK      server private key path
    ```
 
-   **Important Note :** To ensure the server works, these options should not be specified :
+   **Important Note :** To ensure the server works, these options should not be specified as the defaults work :
 
    - __pwd__ : already set to __toor__ in the database which is already installed on the machine
    - __db__ : already set to __imovies__ in the database
