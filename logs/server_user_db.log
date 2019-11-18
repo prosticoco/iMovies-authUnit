@@ -1,0 +1,10 @@
+INFO:root:POST check_user 127.0.0.1 
+INFO:root:{'uid': 'pr', 'pwd': 'adjfksl'}
+INFO:root:POST check_user 127.0.0.1 
+INFO:root:{'uid': 'pr', 'pwd': 'adrienp'}
+INFO:root:POST get_info 127.0.0.1 
+INFO:root:{'uid': 'pr'}
+INFO:root:POST get_info 127.0.0.1 
+INFO:root:{'uid': 'ps'}
+INFO:root:POST is_admin 127.0.0.1 
+INFO:root:{'uid': 'ps'}
