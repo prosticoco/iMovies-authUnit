@@ -4,6 +4,7 @@ from db_utils import *
 class UserDBManager(DBManager):
 
 	index = {'uid':0,'lastname':1,'firstname':2,'email':3,'pwd':4}
+	index_list = ['uid','lastname','firstname','email','pwd']
 
 
 	def __init__(self,host,user,passwd,database,user_table_name='users'):
@@ -30,8 +31,7 @@ class UserDBManager(DBManager):
 			return None 
 
 		infos = results[0]
-		keys = list(self.index.keys())
-		return {keys[i] : infos[i] for i in range(len(infos))}
+		return {self.index_list[i] : infos[i] for i in range(len(infos))}
 
 
 	def exists(self,uid):

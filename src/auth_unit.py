@@ -26,13 +26,13 @@ if __name__ == '__main__':
 
 	parser = argparse.ArgumentParser()
 	parser.add_argument('--port', default=5001,help='server port')
-	parser.add_argument('--ip',default='127.0.0.1',help='server ip')
+	parser.add_argument('--ip',default='10.0.0.2',help='server ip')
 	parser.add_argument('--user', default='root',help='database username')
 	parser.add_argument('--host', default='localhost',help='db username host ip')
 	parser.add_argument('--db', default='imovies',help='database name')
 	parser.add_argument('--pwd', default='toor',help='db user password')
-	parser.add_argument('--cert',default='keys/server_certificate.crt',help='server certificate path')
-	parser.add_argument('--sk',default='keys/server_private_key.key',help='server private key path')
+	parser.add_argument('--cert',default='keys/authentication-unit-cert.pem',help='server certificate path')
+	parser.add_argument('--sk',default='keys/authentication-unit-key.pem',help='server private key path')
 	arguments = parser.parse_args()
 	main(arguments)
 
