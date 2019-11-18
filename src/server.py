@@ -6,6 +6,7 @@ import os
 import traceback
 import hashlib
 from user_db_manager import *
+from utils import *
 
 import logging
 log = logging.getLogger('werkzeug')
@@ -31,6 +32,7 @@ class Endpoint :
 		try : 
 
 			log_line = ""
+			log_line += str(Utils.asn1_date())
 			log_line += str(request.method) + " "
 			log_line += str(self.name) + " "
 			log_line += str(request.remote_addr) + " "
