@@ -19,6 +19,9 @@ class Client :
 		self.port = port
 		self.cert = cert
 		urlbase = 'https://' + str(ip) + ":" + str(port) + "/"
+		self.pwd = "my_super_secret_101"
+		self.headers = dict()
+		self.headers['secret'] = self.pwd
 		self.url_check_user = urlbase + "check_user"
 		self.url_get_info = urlbase + "get_info"
 		self.url_update_info = urlbase + "update_info"
@@ -66,7 +69,7 @@ class Client :
 
 		req = dict()
 		req['uid'] = input("Username?\n")
-		r = requests.post(self.url_is_admin,verify=self.cert,json=json.dumps(req))
+		r = requests.post(self.url_is_admin,headers=self.headers,verify=self.cert,json=json.dumps(req))
 		self.answer(r)
 
 
@@ -96,7 +99,7 @@ class Client :
 
 		get_info = dict()
 		get_info['uid'] = input("Username?\n")
-		r = requests.post(self.url_get_info,verify=self.cert,json=json.dumps(get_info))
+		r = requests.post(self.url_get_info,headers=self.headers,verify=False,json=json.dumps(get_info))
 		self.answer(r)
 
 	
@@ -117,7 +120,7 @@ class Client :
 				value = input("Enter new value\n")
 				update['updates'][column] = value
 
-		r = requests.post(self.url_update_info,verify=self.cert,json=json.dumps(update))
+		r = requests.post(self.url_update_info,headers=self.headers,verify=self.cert,json=json.dumps(update))
 		self.answer(r)
 
 
