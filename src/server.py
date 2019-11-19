@@ -130,22 +130,29 @@ class UserDBServer(Server) :
 
 		if not self.has_json(r):
 
-			return self.error_response("Invalid HTTP Request : No JSON",400)
+			return self.error_response("Invalid HTTP Request : No JSON",400),None
 
 		json_data = r.get_json()
 
-		if not self.json_validator(json_data):
+		if type(json_data) == dict:
 
-			return self.error_response("Invalid JSON format",400)
+			data = json_data
 
-		data = json.loads(json_data)
+		else: 
+
+			if not self.json_validator(json_data):
+
+				return self.error_response("Invalid JSON format",400),None
+
+			data = json.loads(json_data)
+
 
 		if not validator.validate(data):
 
-			return self.error_response("Invalid JSON Fields",400)
+			return self.error_response("Invalid JSON Fields",400),None
 
 
-		return None
+		return None, data
 
 
 	def hash_password(self,pwd):
@@ -159,13 +166,12 @@ class UserDBServer(Server) :
 
 		try :
 
-			error = self.validate_request(request,validator = JSONValidators.check_user)
+			error,data = self.validate_request(request,validator = JSONValidators.check_user)
 
 			if error is not None :
 
 				return error
 
-			data = json.loads(request.get_json())
 			response_json = dict()
 
 			if not self.user_db.exists(data['uid']):
@@ -201,14 +207,13 @@ class UserDBServer(Server) :
 
 		try :
 
-			error = self.validate_request(request,validator = JSONValidators.get_info)
+			error,data = self.validate_request(request,validator = JSONValidators.get_info)
 
 			if error is not None :
 
 				return error
 
 			response_json = dict()
-			data = json.loads(request.get_json())
 
 			if not self.user_db.exists(data['uid']):
 
@@ -225,6 +230,7 @@ class UserDBServer(Server) :
 
 		except :
 
+			traceback.print_exc()
 			return self.error_response("Server Error",400)
 
 	
@@ -232,14 +238,13 @@ class UserDBServer(Server) :
 
 		try :
 
-			error = self.validate_request(request,validator=JSONValidators.update_info)
+			error,data = self.validate_request(request,validator=JSONValidators.update_info)
 
 			if error is not None :
 
 				return error
 
 			response_json = dict()
-			data = json.loads(request.get_json())
 			updates = data['updates']
 			uid = data['uid']
 
@@ -294,13 +299,12 @@ class UserDBServer(Server) :
 
 		try :
 
-			error = self.validate_request(request,validator=JSONValidators.is_admin)
+			error,data = self.validate_request(request,validator=JSONValidators.is_admin)
 
 			if error is not None :
 
 				return error
 
-			data = json.loads(request.get_json())
 			response_json = dict()
 			response_json['admin'] = self.user_db.is_admin(data['uid'])
 			return make_response(jsonify(response_json),200)

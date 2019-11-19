@@ -52,6 +52,7 @@ class Client :
 			except requests.exceptions.ConnectionError :
 
 				print("Server unreachable")
+				traceback.print_exc()
 				self.exit()
 
 

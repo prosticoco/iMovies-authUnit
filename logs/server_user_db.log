@@ -7,4 +7,46 @@ INFO:root:{'uid': 'pr'}
 INFO:root:POST get_info 127.0.0.1 
 INFO:root:{'uid': 'ps'}
 INFO:root:POST is_admin 127.0.0.1 
+INFO:root:{'uid': 'ps'}ERROR:werkzeug:127.0.0.1 - - [19/Nov/2019 12:13:25] code 400, message Bad request version ("\x9b\x00V\x13\x02\x13\x03\x13\x01À,À0À+À/Ì©Ì¨\x00\x9f\x00\x9eÌªÀ¯À\xadÀ®À¬À$À(À#À'À")
+ERROR:werkzeug:127.0.0.1 - - [19/Nov/2019 12:14:05] code 400, message Bad request syntax ("\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03¿|ó\x0cÕ¢;^¨<!xt\x0e\x14\x87B¶~ð¼\x0f\x1b\x8e7-øXWÉ\x16ü ô>ÉßfEÉ\x18\xa0ôOÓ«Ù\xa0ÖU\x0eù\x03æ?\x11?[¶\x11\x04Hs\x1añ\x00V\x13\x02\x13\x03\x13\x01À,À0À+À/Ì©Ì¨\x00\x9f\x00\x9eÌªÀ¯À\xadÀ®À¬À$À(À#À'À")
+INFO:root:20191119111535+0000POST get_info 127.0.0.1 
+INFO:root:{'uid': 'ps'}
+INFO:root:20191119111807+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT the JSON object must be str, bytes or bytearray, not 'dict' 127.0.0.1
+INFO:root:20191119111930+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT the JSON object must be str, bytes or bytearray, not 'dict' 127.0.0.1
+INFO:root:20191119112110+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT the JSON object must be str, bytes or bytearray, not 'dict' 127.0.0.1
+INFO:root:20191119112438+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT the JSON object must be str, bytes or bytearray, not 'dict' 127.0.0.1
+INFO:root:20191119112559+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT the JSON object must be str, bytes or bytearray, not 'NoneType' 127.0.0.1
+INFO:root:20191119112925+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT the JSON object must be str, bytes or bytearray, not 'dict' 127.0.0.1
+INFO:root:20191119113045+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT 400 Bad Request: The browser (or proxy) sent a request that this server could not understand. 127.0.0.1
+INFO:root:20191119113308+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT 400 Bad Request: The browser (or proxy) sent a request that this server could not understand. 127.0.0.1
+INFO:root:20191119113326+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT the JSON object must be str, bytes or bytearray, not 'dict' 127.0.0.1
+INFO:root:20191119113524+0000POST get_info 127.0.0.1 
+INFO:root:{'uid': 'ps'}
+INFO:root:20191119113714+0000POST get_info 127.0.0.1 
+INFO:root:{'uid': 'ps'}
+INFO:root:20191119114020+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT the JSON object must be str, bytes or bytearray, not 'dict' 127.0.0.1
+INFO:root:20191119114257+0000POST get_info 127.0.0.1 
+INFO:root:{'uid': 'ps'}
+INFO:root:20191119114302+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT the JSON object must be str, bytes or bytearray, not 'dict' 127.0.0.1
+INFO:root:20191119115336+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT the JSON object must be str, bytes or bytearray, not 'dict' 127.0.0.1
+INFO:root:20191119115437+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT the JSON object must be str, bytes or bytearray, not 'dict' 127.0.0.1
+INFO:root:20191119115449+0000POST get_info 127.0.0.1 
+INFO:root:EXCEPTION CAUGHT the JSON object must be str, bytes or bytearray, not 'dict' 127.0.0.1
+INFO:root:20191119115459+0000POST get_info 127.0.0.1 
+INFO:root:{'uid': 'ps'}
+ERROR:werkzeug:127.0.0.1 - - [19/Nov/2019 12:55:04] code 400, message Bad request syntax ("\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x037ië\x06Ä\x85Òo\x15Ye\x07\x08×\x01+¨lT\x83ðþ¬\x0b3\x7fêÌ°7®î \x97:#£{p\x12Ï\x10=\x92ý\x8dÑ@\x85éÖJ\x97\x9aç´ÃãI'å¼³µî\x00V\x13\x02\x13\x03\x13\x01À,À0À+À/Ì©Ì¨\x00\x9f\x00\x9eÌªÀ¯À\xadÀ®À¬À$À(À#À'À")
+INFO:root:20191119120927+0000POST get_info 127.0.0.1 
 INFO:root:{'uid': 'ps'}
